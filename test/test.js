@@ -271,6 +271,10 @@ test('exp2 / ln2', t => {
   expected = Double.MinusInfinity;
   actual = Double.Zero.ln();
   t.ok(expected.eq(actual), 'ln(1) = 0');
+  expected = new Double(45.);
+  actual = expected.exp().ln();
+  diff = expected.sub(actual).abs().toNumber();
+  t.ok(diff < eps2, 'ln(exp(45)) = 45');
 });
 
 test('extended tests', t => {
